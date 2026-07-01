@@ -1,2 +1,2 @@
 # openai-apac-vision
-OpenAI
+OpenAI x Jia Hui 
