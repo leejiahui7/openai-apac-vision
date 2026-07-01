@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#EFE9DA;
-    --ink-dim:#B9B2A0;
-    --canvas:#14152A;
-    --canvas-deep:#0D0E1D;
-    --card:#1C1E38;
-    --paper:#F4EEDD;
-    --amber:#E3A857;
-    --coral:#E8654A;
-    --line:rgba(239,233,218,0.14);
+    --ink:#0D0D0D;
+    --ink-dim:#6B6B6B;
+    --canvas:#FFFFFF;
+    --canvas-deep:#F7F7F5;
+    --card:#F7F7F5;
+    --paper:#0D0D0D;
+    --teal:#10A37F;
+    --teal-deep:#0B6E56;
+    --line:rgba(13,13,13,0.12);
     --radius:2px;
   }
   *{box-sizing:border-box;}
@@ -31,7 +31,7 @@
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  ::selection{background:var(--amber);color:var(--canvas-deep);}
+  ::selection{background:var(--teal);color:#FFFFFF;}
   h1,h2,h3{
     font-family:'Fraunces',serif;
     font-weight:600;
@@ -44,7 +44,7 @@
     letter-spacing:0.14em;
     font-size:12px;
   }
-  a{color:var(--amber);}
+  a{color:var(--teal-deep);}
   .wrap{
     max-width:1080px;
     margin:0 auto;
@@ -52,15 +52,43 @@
   }
   @media(max-width:640px){ .wrap{padding:0 20px;} }
 
+  /* ===== NAV / LOGO ===== */
+  nav.top{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand .mark{
+    width:26px;
+    height:26px;
+    flex-shrink:0;
+  }
+  .brand-text{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    color:var(--ink);
+  }
+  .brand-text span{color:var(--ink-dim);}
+  nav.top .mono{color:var(--ink-dim);}
+
   /* ===== HERO ===== */
   header.hero{
-    padding:120px 0 96px;
+    padding:100px 0 88px;
     border-bottom:1px solid var(--line);
     position:relative;
-    overflow:hidden;
   }
   .hero-eyebrow{
-    color:var(--amber);
+    color:var(--teal-deep);
     margin-bottom:28px;
     display:flex;
     align-items:center;
@@ -68,17 +96,18 @@
   }
   .hero-eyebrow::before{
     content:"";
-    width:28px;height:1px;background:var(--amber);
+    width:28px;height:1px;background:var(--teal-deep);
     display:inline-block;
   }
   h1.title{
     font-size:clamp(2.6rem,6vw,4.6rem);
     line-height:1.02;
     max-width:14ch;
+    color:var(--ink);
   }
   h1.title em{
     font-style:italic;
-    color:var(--coral);
+    color:var(--teal);
   }
   .hero-sub{
     margin-top:28px;
@@ -98,33 +127,8 @@
   }
   .hero-byline strong{color:var(--ink);font-weight:600;}
 
-  .ticker{
-    margin-top:64px;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:16px 0;
-    overflow:hidden;
-    white-space:nowrap;
-  }
-  .ticker-track{
-    display:inline-block;
-    animation:scroll 34s linear infinite;
-  }
-  .ticker span{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-size:1.1rem;
-    color:var(--ink-dim);
-    margin-right:56px;
-  }
-  .ticker span b{color:var(--amber);font-style:normal;font-weight:500;}
-  @keyframes scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
-
   /* ===== SECTION SHELL ===== */
-  section{padding:96px 0;border-bottom:1px solid var(--line);}
+  section{padding:88px 0;border-bottom:1px solid var(--line);}
   .section-head{
     display:flex;
     justify-content:space-between;
@@ -133,8 +137,8 @@
     margin-bottom:56px;
     flex-wrap:wrap;
   }
-  .section-head .mono{color:var(--coral);}
-  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);max-width:20ch;}
+  .section-head .mono{color:var(--teal-deep);}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);max-width:20ch;color:var(--ink);}
   .section-head p{color:var(--ink-dim);max-width:34ch;font-size:15px;}
 
   /* ===== PROBLEM CARDS ===== */
@@ -154,7 +158,7 @@
   .problem-card h3{
     font-size:1.3rem;
     margin-bottom:14px;
-    color:var(--paper);
+    color:var(--ink);
   }
   .problem-card p{color:var(--ink-dim);font-size:14.5px;}
 
@@ -172,61 +176,12 @@
     font-family:'Fraunces',serif;
     font-size:1.5rem;
     font-weight:500;
-    color:var(--amber);
+    color:var(--teal-deep);
     align-self:start;
   }
   .pillar-body p{color:var(--ink-dim);margin:0 0 12px;}
   .pillar-body ul{margin:14px 0 0;padding-left:18px;color:var(--ink-dim);font-size:14.5px;}
   .pillar-body li{margin-bottom:8px;}
-
-  /* ===== CLOCK ===== */
-  .clock-wrap{
-    display:flex;
-    justify-content:center;
-    padding:20px 0 10px;
-  }
-  .clock{
-    position:relative;
-    width:420px;
-    height:420px;
-    max-width:88vw;
-    max-height:88vw;
-    border-radius:50%;
-    border:1px solid var(--line);
-  }
-  .clock::before{
-    content:"";
-    position:absolute;
-    inset:74px;
-    border-radius:50%;
-    border:1px dashed var(--line);
-  }
-  .clock-center{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-  }
-  .clock-center .mono{color:var(--coral);}
-  .clock-center strong{
-    font-family:'Fraunces',serif;
-    font-size:1.4rem;
-    font-weight:500;
-    margin-top:6px;
-  }
-  .city{
-    position:absolute;
-    width:132px;
-    margin-left:-66px;
-    margin-top:-30px;
-    text-align:center;
-  }
-  .city .name{font-size:13px;font-weight:600;color:var(--paper);}
-  .city .time{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--amber);margin-top:2px;}
-  .city .greet{font-size:11.5px;color:var(--ink-dim);font-style:italic;margin-top:1px;}
 
   /* ===== ROADMAP ===== */
   .road{
@@ -236,11 +191,11 @@
   }
   @media(max-width:800px){ .road{grid-template-columns:1fr;} }
   .road-card{
-    border-left:2px solid var(--coral);
+    border-left:2px solid var(--teal);
     padding:6px 0 6px 22px;
   }
   .road-card .mono{color:var(--ink-dim);}
-  .road-card h3{font-size:1.15rem;margin:10px 0 12px;color:var(--paper);}
+  .road-card h3{font-size:1.15rem;margin:10px 0 12px;color:var(--ink);}
   .road-card p{color:var(--ink-dim);font-size:14px;}
 
   /* ===== WHY ME ===== */
@@ -257,21 +212,21 @@
     border-top:1px solid var(--line);
   }
   .credential:first-child{border-top:none;}
-  .credential .mark{
+  .credential .mark-num{
     font-family:'IBM Plex Mono',monospace;
-    color:var(--coral);
+    color:var(--teal-deep);
     font-size:13px;
     padding-top:3px;
   }
   .credential p{margin:0;color:var(--ink-dim);font-size:14.5px;}
-  .credential strong{color:var(--paper);font-weight:600;}
+  .credential strong{color:var(--ink);font-weight:600;}
 
   .side-card{
     background:var(--card);
     border:1px solid var(--line);
     padding:32px;
   }
-  .side-card .mono{color:var(--amber);margin-bottom:16px;display:block;}
+  .side-card .mono{color:var(--teal-deep);margin-bottom:16px;display:block;}
   .lang-row{
     display:flex;
     justify-content:space-between;
@@ -284,13 +239,14 @@
 
   /* ===== FOOTER / CTA ===== */
   footer{
-    padding:96px 0 80px;
+    padding:96px 0 64px;
     text-align:center;
   }
   footer h2{
     font-size:clamp(1.8rem,4vw,2.6rem);
     max-width:20ch;
     margin:0 auto 20px;
+    color:var(--ink);
   }
   footer p{color:var(--ink-dim);max-width:42ch;margin:0 auto 36px;}
   .cta-row{
@@ -311,23 +267,46 @@
     color:var(--ink);
     transition:all .2s ease;
   }
-  .btn.solid{background:var(--amber);border-color:var(--amber);color:var(--canvas-deep);}
-  .btn:hover{background:var(--ink);color:var(--canvas-deep);}
-  .btn.solid:hover{background:var(--coral);border-color:var(--coral);color:var(--canvas-deep);}
+  .btn.solid{background:var(--teal);border-color:var(--teal);color:#FFFFFF;}
+  .btn:hover{background:var(--ink);color:#FFFFFF;}
+  .btn.solid:hover{background:var(--teal-deep);border-color:var(--teal-deep);color:#FFFFFF;}
+  .foot-brand{
+    display:flex;
+    justify-content:center;
+    margin-top:56px;
+    margin-bottom:20px;
+  }
+  .foot-brand .mark{width:22px;height:22px;}
   .foot-meta{
-    margin-top:64px;
     color:var(--ink-dim);
     font-size:12.5px;
     font-family:'IBM Plex Mono',monospace;
   }
 
   @media (prefers-reduced-motion: reduce){
-    .ticker-track{animation:none;}
     html{scroll-behavior:auto;}
   }
 </style>
 </head>
 <body>
+
+<nav class="top">
+  <div class="wrap nav-row">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="6" r="3.4" fill="#10A37F"/>
+        <circle cx="32.9" cy="13" r="3.4" fill="#10A37F"/>
+        <circle cx="32.9" cy="27" r="3.4" fill="#10A37F"/>
+        <circle cx="20" cy="34" r="3.4" fill="#10A37F"/>
+        <circle cx="7.1" cy="27" r="3.4" fill="#10A37F"/>
+        <circle cx="7.1" cy="13" r="3.4" fill="#10A37F"/>
+        <circle cx="20" cy="20" r="4.2" fill="#0D0D0D"/>
+      </svg>
+      <div class="brand-text">LEE JIA HUI <span>· APAC Outreach Vision</span></div>
+    </div>
+    <div class="mono">For OpenAI Academy &amp; Forum</div>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap">
@@ -337,26 +316,6 @@
     <div class="hero-byline">
       <strong>Lee Jia Hui</strong>
       <span>· A working vision prepared for the Program Manager, Outreach and Audiences role</span>
-    </div>
-  </div>
-  <div class="ticker">
-    <div class="ticker-track">
-      <span><b>Hello.</b> Singapore</span>
-      <span><b>你好.</b> Beijing, Taipei, Shanghai</span>
-      <span><b>Halo.</b> Jakarta</span>
-      <span><b>こんにちは.</b> Tokyo</span>
-      <span><b>안녕하세요.</b> Seoul</span>
-      <span><b>नमस्ते.</b> Mumbai, Delhi</span>
-      <span><b>Xin chào.</b> Ho Chi Minh City</span>
-      <span><b>Kumusta.</b> Manila</span>
-      <span><b>Hello.</b> Singapore</span>
-      <span><b>你好.</b> Beijing, Taipei, Shanghai</span>
-      <span><b>Halo.</b> Jakarta</span>
-      <span><b>こんにちは.</b> Tokyo</span>
-      <span><b>안녕하세요.</b> Seoul</span>
-      <span><b>नमस्ते.</b> Mumbai, Delhi</span>
-      <span><b>Xin chào.</b> Ho Chi Minh City</span>
-      <span><b>Kumusta.</b> Manila</span>
     </div>
   </div>
 </header>
@@ -438,26 +397,11 @@
   </div>
 </section>
 
-<section id="clock">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="mono">03 · The Region, Right Now</div>
-        <h2>Outreach that works has to hold eight time zones at once</h2>
-      </div>
-      <p>A live read on why "send it out globally" is never actually one action in this region.</p>
-    </div>
-    <div class="clock-wrap">
-      <div class="clock" id="clock"></div>
-    </div>
-  </div>
-</section>
-
 <section id="roadmap">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="mono">04 · First 90 Days</div>
+        <div class="mono">03 · First 90 Days</div>
         <h2>How this vision becomes a working program</h2>
       </div>
       <p>Listen first, build one pilot well, then prove it before asking for more scope.</p>
@@ -486,30 +430,30 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="mono">05 · Why This, Why Me</div>
+        <div class="mono">04 · Why This, Why Me</div>
         <h2>A decade of building trust with audiences that do not scale easily</h2>
       </div>
     </div>
     <div class="why-grid">
       <div>
         <div class="credential">
-          <span class="mark">01</span>
+          <span class="mark-num">01</span>
           <p><strong>A decade running high stakes public communications</strong> across Singapore's defence and intelligence community, translating complex technical and policy material for audiences ranging from senior officials to the general public.</p>
         </div>
         <div class="credential">
-          <span class="mark">02</span>
+          <span class="mark-num">02</span>
           <p><strong>Built Humans of UCL from zero to 100,000 followers in twelve months</strong> with no paid media, a lived case study in the exact organic, community first audience growth this role calls for.</p>
         </div>
         <div class="credential">
-          <span class="mark">03</span>
+          <span class="mark-num">03</span>
           <p><strong>Delivered a full post conference report from HTX's MTX 2026</strong> covering counter UAS, disinformation resilience, and AI transparency, and prepared and executed content around a fireside chat with JP Morgan's Vineet Mishra.</p>
         </div>
         <div class="credential">
-          <span class="mark">04</span>
+          <span class="mark-num">04</span>
           <p><strong>An active builder of AI tools</strong>, including a WhatsApp based AI customer service agent and a weekly AI content pipeline, meaning Academy's subject matter is something practiced firsthand, not just communicated.</p>
         </div>
         <div class="credential">
-          <span class="mark">05</span>
+          <span class="mark-num">05</span>
           <p><strong>Direct experience adapting messaging across cultural registers</strong>, including a published comparison of French and Chinese communication styles for a cross border audience.</p>
         </div>
       </div>
@@ -531,61 +475,22 @@
     <p>Happy to walk through this vision, the 90 day plan, or how the Academy to Forum pipeline would actually run week to week.</p>
     <div class="cta-row">
       <a class="btn solid" href="https://linkedin.com/in/lee-jiahui7" target="_blank" rel="noopener">Connect on LinkedIn</a>
-      <a class="btn" href="mailto:hello@example.com">Email me</a>
+      <a class="btn" href="mailto:leejiahui7@gmail.com">Email me</a>
+    </div>
+    <div class="foot-brand">
+      <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="6" r="3.4" fill="#10A37F"/>
+        <circle cx="32.9" cy="13" r="3.4" fill="#10A37F"/>
+        <circle cx="32.9" cy="27" r="3.4" fill="#10A37F"/>
+        <circle cx="20" cy="34" r="3.4" fill="#10A37F"/>
+        <circle cx="7.1" cy="27" r="3.4" fill="#10A37F"/>
+        <circle cx="7.1" cy="13" r="3.4" fill="#10A37F"/>
+        <circle cx="20" cy="20" r="4.2" fill="#0D0D0D"/>
+      </svg>
     </div>
     <div class="foot-meta">LEE JIA HUI · PROGRAM VISION · OPENAI ACADEMY &amp; FORUM · APAC</div>
   </div>
 </footer>
-
-<script>
-  const cities = [
-    { name: "Singapore", tz: "Asia/Singapore", greet: "Hello" },
-    { name: "Jakarta", tz: "Asia/Jakarta", greet: "Halo" },
-    { name: "Tokyo", tz: "Asia/Tokyo", greet: "Konnichiwa" },
-    { name: "Seoul", tz: "Asia/Seoul", greet: "Annyeong" },
-    { name: "Mumbai", tz: "Asia/Kolkata", greet: "Namaste" },
-    { name: "Manila", tz: "Asia/Manila", greet: "Kumusta" },
-    { name: "Ho Chi Minh City", tz: "Asia/Ho_Chi_Minh", greet: "Xin chào" },
-    { name: "Sydney", tz: "Australia/Sydney", greet: "Hello" }
-  ];
-
-  function layout(){
-    const el = document.getElementById("clock");
-    const r = el.clientWidth / 2 - 66;
-    const cx = el.clientWidth / 2;
-    const cy = el.clientHeight / 2;
-
-    el.innerHTML = '<div class="clock-center"><span class="mono">Right now</span><strong id="clock-local"></strong></div>';
-
-    cities.forEach((c, i) => {
-      const angle = (i / cities.length) * 2 * Math.PI - Math.PI / 2;
-      const x = cx + r * Math.cos(angle);
-      const y = cy + r * Math.sin(angle);
-      const div = document.createElement("div");
-      div.className = "city";
-      div.style.left = x + "px";
-      div.style.top = y + "px";
-      div.innerHTML = `<div class="name">${c.name}</div><div class="time" data-tz="${c.tz}"></div><div class="greet">${c.greet}</div>`;
-      el.appendChild(div);
-    });
-    tick();
-  }
-
-  function tick(){
-    document.querySelectorAll(".time").forEach(t => {
-      const tz = t.getAttribute("data-tz");
-      t.textContent = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: tz }).format(new Date());
-    });
-    const local = document.getElementById("clock-local");
-    if(local){
-      local.textContent = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit" }).format(new Date());
-    }
-  }
-
-  layout();
-  window.addEventListener("resize", layout);
-  setInterval(tick, 30000);
-</script>
 
 </body>
 </html>
